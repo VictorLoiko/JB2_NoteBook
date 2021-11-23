@@ -1,4 +1,6 @@
-package com.epam.jb2.notebook;
+package com.epam.jb2.notebook.instance;
+
+import com.epam.jb2.notebook.entity.NoteBook;
 
 public class NoteBookProvider {
     private static NoteBookProvider instance;

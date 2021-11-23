@@ -1,4 +1,7 @@
-package com.epam.jb2.notebook;
+package com.epam.jb2.notebook.print;
+
+import com.epam.jb2.notebook.entity.Note;
+import com.epam.jb2.notebook.entity.NoteBook;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

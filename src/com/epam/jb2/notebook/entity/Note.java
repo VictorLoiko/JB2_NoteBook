@@ -1,4 +1,4 @@
-package com.epam.jb2.notebook;
+package com.epam.jb2.notebook.entity;
 
 import java.util.Date;
 import java.util.Objects;

@@ -1,5 +1,11 @@
 package com.epam.jb2.notebook;
 
+import com.epam.jb2.notebook.entity.Note;
+import com.epam.jb2.notebook.entity.NoteBook;
+import com.epam.jb2.notebook.instance.NoteBookProvider;
+import com.epam.jb2.notebook.logic.NoteBookService;
+import com.epam.jb2.notebook.print.NoteBookConsoleView;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,6 +13,7 @@ import java.util.Date;
 public class Main {
     public static void main (String[] args) {
         NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
+        NoteBookService noteBookService = NoteBookService.getInstance();
         noteBook.setName("Dear Diary");
         noteBook.setOwner("Victor");
 
@@ -24,15 +31,15 @@ public class Main {
         System.out.println(noteBook.getNotes());
 
         System.out.println("Поиск по имени Note:");
-        System.out.println(noteBook.getNotesByName("Note"));
+        System.out.println(noteBookService.getNotesByName(noteBook, "Note"));
 
         System.out.println("Поиск ноутов по времени создания с предопределенным форматом:");
         String dateFormatString = "dd/MM/yyyy";
         DateFormat dateFormat = new SimpleDateFormat(dateFormatString);
-        System.out.println(noteBook.getNotesByDate(dateFormat.format(date),dateFormatString));
+        System.out.println(noteBookService.getNotesByDate(noteBook, dateFormat.format(date),dateFormatString));
 
         System.out.println("удаление элементов по имени Note1:");
-        noteBook.deleteNoteByName("Note1");
+        noteBookService.deleteNoteByName(noteBook, "Note1");
         System.out.println(noteBook.getNotes());
     }
 }

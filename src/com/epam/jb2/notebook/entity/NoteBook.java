@@ -1,10 +1,8 @@
-package com.epam.jb2.notebook;
+package com.epam.jb2.notebook.entity;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,48 +17,6 @@ public class NoteBook {
 
     public void addNote(Note note) {
         notes.add(note);
-    }
-
-    private int getNoteIndex(Note note) {
-        return notes.indexOf(note);
-    }
-
-    public List<Note> getNotesByName(String name) {
-        List<Note> results = new ArrayList();
-        notes.forEach(note -> {
-            if (note.getName().contains(name)){
-                results.add(note);
-            }
-        });
-        return results;
-    }
-
-    public List<Note> getNotesByContent(String content) {
-        List<Note> results = new ArrayList();
-        notes.forEach(note -> {
-            if (note.getContent().contains(content)){
-                results.add(note);
-            }
-        });
-        return results;
-    }
-
-    public List<Note> getNotesByDate(String dateString, String dateFormatString) {
-        List<Note> results = new ArrayList();
-        DateFormat dateFormat = new SimpleDateFormat(dateFormatString);
-        notes.forEach(note -> {
-            if (dateFormat.format(note.getCreationDate()).equals(dateString)) {
-                results.add(note);
-            }
-        });
-        return results;
-    }
-
-    public void deleteNoteByName(String name) {
-        getNotesByName(name).forEach(note -> {
-            notes.remove(note);
-        });
-
     }
 
     public String getOwner() {
